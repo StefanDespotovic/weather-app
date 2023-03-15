@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Weather from "../Weather/Weather";
+import "./WeatherSearch.css";
 
 const WeatherSearch = () => {
   const [city, setCity] = useState("");
+  const [weatherLoaded, setWeatherLoaded] = useState(false);
   const [showWeather, setShowWeather] = useState(false);
   const [showRefreshButton, setShowRefreshButton] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -21,6 +23,9 @@ const WeatherSearch = () => {
       .then((data) => {
         setShowWeather(true);
         setShowRefreshButton(true);
+        setShowError(false);
+        setWeatherLoaded(true); // set weatherLoaded to true
+        document.querySelector(".weather").classList.add("show");
       })
       .catch((error) => {
         setShowError(true);
@@ -28,20 +33,21 @@ const WeatherSearch = () => {
   };
 
   const handleRefresh = () => {
-    window.location.reload();
-  };
-
-  const handleErrorMessageClose = () => {
+    setShowWeather(false);
+    setShowRefreshButton(false);
     setShowError(false);
-    handleRefresh();
+    document.querySelector(".weather").classList.remove("show");
   };
 
   return (
-    <div>
+    <div
+      className="weather"
+      style={{ height: weatherLoaded ? "auto" : "10vh" }}
+    >
       {!showWeather && (
-        <form onSubmit={handleSearch}>
+        <form className="cityName" onSubmit={handleSearch}>
           <label>
-            Enter a city name:
+            <h2>Enter a city name:</h2>
             <input
               type="text"
               value={city}
@@ -56,7 +62,6 @@ const WeatherSearch = () => {
       {showError && (
         <div>
           <p>City not found. Please try again.</p>
-          <button onClick={handleErrorMessageClose}>Try again</button>
         </div>
       )}
     </div>

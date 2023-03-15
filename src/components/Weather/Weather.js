@@ -42,14 +42,33 @@ const Weather = ({ city }) => {
   if (!weatherData) {
     return <div>Loading...</div>;
   }
+  // prettier-ignore
+  const weatherIcons = {
+    "clear sky": "01d",
+    "few clouds": "02d",
+    "scattered clouds": "03d",
+    "broken clouds": "04d",
+    "overcast clouds": "04d",
+    "shower rain": "09d",
+    "rain": "10d",
+    "light rain": "10d",
+    "thunderstorm": "11d",
+    "snow": "13d",
+    "mist": "50d",
+  };
+
+  const weatherDescription = weatherData.weather[0].description;
+  const iconId = weatherIcons[weatherDescription];
+  const iconUrl = `https://openweathermap.org/img/w/${iconId}.png`;
 
   return (
     <div>
       <h2>
         {weatherData.name}, {weatherData.sys.country}
       </h2>
-      <p>Current temperature: {weatherData.main.temp}°C</p>
-      <p>Feels like: {weatherData.main.feels_like}°C</p>
+      <img className="weather-icon" src={iconUrl} alt="Weather Icon" />
+      <p>Current temperature: {weatherData.main.temp.toFixed(1)}°C</p>
+      <p>Feels like: {weatherData.main.feels_like.toFixed(1)}°C</p>
       <p>Weather: {weatherData.weather[0].description}</p>
     </div>
   );

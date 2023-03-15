@@ -1,0 +1,24 @@
+.weather {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20vw;
+  min-height: 12vh;
+  max-height: 0;
+  background-color: #99aab5;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding-bottom: 3%;
+  margin-bottom: 30px;
+  text-align: center;
+  overflow: hidden;
+  transition-property: max-height;
+  transition-duration: 2.5s;
+  transition-timing-function: ease;
+}
+
+.weather.show {
+  max-height: 1000px; /* A large enough value to allow for the content to expand to its natural height */
+}
