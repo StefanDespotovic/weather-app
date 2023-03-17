@@ -54,6 +54,7 @@ const Weather = ({ city }) => {
     "light rain": "10d",
     "thunderstorm": "11d",
     "snow": "13d",
+    "light snow": "13d",
     "mist": "50d",
   };
 
