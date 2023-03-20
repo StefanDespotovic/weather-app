@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Weather from "../Weather/Weather";
 import Forecast from "../forecast/Forecast";
 import Uvi from "../uvi/Uvi";
+import Cookies from "js-cookie";
 import "./WeatherSearch.css";
 
 const WeatherSearch = () => {
+  const username = Cookies.get("username");
   const [city, setCity] = useState("");
   const [weatherLoaded, setWeatherLoaded] = useState(false);
   const [showWeather, setShowWeather] = useState(false);
@@ -73,6 +75,7 @@ const WeatherSearch = () => {
 
   return (
     <div className="weather-container">
+      {username ? <p>Hello {username}</p> : <p>Please enter your name</p>}
       <div className="weather">
         {!showWeather && (
           <form className="cityName" onSubmit={handleSearch}>
