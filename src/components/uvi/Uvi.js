@@ -5,23 +5,39 @@ import "react-circular-progressbar/dist/styles.css";
 const Uvi = ({ uviData }) => {
   let uvDescription = "";
   if (uviData.value <= 2) {
-    uvDescription = "low";
+    uvDescription = "Low";
   } else if (uviData.value <= 5) {
-    uvDescription = "moderate";
+    uvDescription = "Moderate";
   } else if (uviData.value <= 7) {
-    uvDescription = "high";
+    uvDescription = "High";
   } else if (uviData.value <= 10) {
-    uvDescription = "veryHigh";
+    uvDescription = "Veryhigh";
   } else {
-    uvDescription = "extreme";
+    uvDescription = "Extreme";
   }
 
   const uvIndexColor = {
-    low: "#9ACD32",
-    moderate: "#FFFF00",
-    high: "#FFA500",
-    veryHigh: "#FF4500",
-    extreme: "#B22222",
+    Low: "#9ACD32",
+    Moderate: "#FFFF00",
+    High: "#FFA500",
+    Veryhigh: "#FF4500",
+    Extreme: "#B22222",
+  };
+
+  const uvIndexSunburn = {
+    Low: "60 minutes",
+    Moderate: "45 minutes",
+    High: "25 minutes",
+    Veryhigh: "15 minutes",
+    Extreme: "10 minutes",
+  };
+
+  const uvIndexSPF = {
+    Low: "10 SPF",
+    Moderate: "15 SPF",
+    High: "25 SPF",
+    Veryhigh: "40 SPF",
+    Extreme: "50 SPF",
   };
 
   const progressbarClassName = `progressbar-${uvDescription}`;
@@ -29,21 +45,22 @@ const Uvi = ({ uviData }) => {
   return (
     <div>
       <p>
-        UV Index: {Math.round(uviData.value * 10) / 10} ({uvDescription})
+        {uvDescription} UV Index: {Math.round(uviData.value * 10) / 10}
       </p>
+      <p>Time to sunburn: {uvIndexSunburn[uvDescription]}</p>
+      <p>{uvIndexSPF[uvDescription]}</p>
       <div style={{ width: "110px" }}>
         <CircularProgressbar
           value={uviData.value * 10}
           text={`${Math.round(uviData.value * 10) / 10}`}
+          strokeWidth={12}
           styles={{
             path: {
               stroke: uvIndexColor[uvDescription],
             },
           }}
           className={progressbarClassName}
-        >
-          <p className="uvi-text">UV Index</p>
-        </CircularProgressbar>
+        />
       </div>
     </div>
   );

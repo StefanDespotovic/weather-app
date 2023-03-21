@@ -14,6 +14,7 @@ const WeatherSearch = () => {
   const [showError, setShowError] = useState(false);
   const [forecastData, setForecastData] = useState(null);
   const [uviData, setUviData] = useState(null);
+  const [showProgressBar, setShowProgressBar] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -53,6 +54,7 @@ const WeatherSearch = () => {
         setShowRefreshButton(true);
         setShowError(false);
         setWeatherLoaded(true);
+        setShowProgressBar(true);
         setForecastData(forecastData);
         setUviData(uviData);
         document.querySelector(".weather").classList.add("show");
@@ -74,49 +76,51 @@ const WeatherSearch = () => {
   };
 
   return (
-    <div className="weather-container">
-      {username ? <p>Hello {username}</p> : <p>Please enter your name</p>}
-      <div className="weather">
-        {!showWeather && (
-          <form className="cityName" onSubmit={handleSearch}>
-            <label>
-              <h2>Enter a city name:</h2>
-              <input
-                type="text"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </label>
-            <button type="submit">Search</button>
-          </form>
-        )}
-        {showWeather && (
-          <>
-            <Weather city={city} />
-          </>
-        )}
-        {showRefreshButton && (
-          <button onClick={handleRefresh}>Search another location</button>
-        )}
-        {showError && (
-          <div>
-            <p>City not found. Please try again.</p>
-          </div>
-        )}
-      </div>
-      <div className="forecast">
-        {showWeather && (
-          <>
-            <Forecast forecastData={forecastData} />
-          </>
-        )}
-      </div>
-      <div className="uvi">
-        {showWeather && (
-          <>
-            <Uvi uviData={uviData} />
-          </>
-        )}
+    <div className="container-width">
+      <div className="weather-container">
+        {username ? <p>Hello {username}</p> : <p>Please enter your name</p>}
+        <div className="weather">
+          {!showWeather && (
+            <form className="cityName" onSubmit={handleSearch}>
+              <label>
+                <h2>Enter a city name:</h2>
+                <input
+                  type="text"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
+              </label>
+              <button type="submit">Search</button>
+            </form>
+          )}
+          {showWeather && (
+            <>
+              <Weather city={city} />
+            </>
+          )}
+          {showRefreshButton && (
+            <button onClick={handleRefresh}>Search another location</button>
+          )}
+          {showError && (
+            <div>
+              <p>City not found. Please try again.</p>
+            </div>
+          )}
+        </div>
+        <div className="forecast">
+          {showWeather && (
+            <>
+              <Forecast forecastData={forecastData} />
+            </>
+          )}
+        </div>
+        <div className="uvi">
+          {showWeather && (
+            <>
+              <Uvi uviData={uviData} />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
