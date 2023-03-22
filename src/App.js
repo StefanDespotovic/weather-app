@@ -9,6 +9,7 @@ function App() {
   const handleUsernameSubmit = (name) => {
     setUsername(name);
   };
+
   return (
     <>
       {username ? (

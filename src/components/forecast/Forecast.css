@@ -1,10 +1,30 @@
 ul {
-  list-style: none;
-  padding: 0;
+  list-style-type: none;
   margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 li {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  margin: 1vw;
+  padding: 1vw;
+  width: 9vw;
   display: inline-block;
-  margin-right: 10px;
+  vertical-align: top;
+  margin-right: 0.5vw;
+}
+
+li div:first-child {
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+li div:not(:first-child) {
+  font-size: 1vw;
+  margin: 1vw 0;
 }

@@ -83,7 +83,7 @@ const WeatherSearch = () => {
           {!showWeather && (
             <form className="cityName" onSubmit={handleSearch}>
               <label>
-                <h2>Enter a city name:</h2>
+                Enter a city name:
                 <input
                   type="text"
                   value={city}

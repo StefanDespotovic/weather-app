@@ -1,6 +1,7 @@
 import React from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import "./Uvi.css";
 
 const Uvi = ({ uviData }) => {
   let uvDescription = "";
@@ -44,11 +45,28 @@ const Uvi = ({ uviData }) => {
 
   return (
     <div>
-      <p>
-        {uvDescription} UV Index: {Math.round(uviData.value * 10) / 10}
-      </p>
-      <p>Time to sunburn: {uvIndexSunburn[uvDescription]}</p>
-      <p>{uvIndexSPF[uvDescription]}</p>
+      <div className="UVindex">
+        <p>
+          {uvDescription} UV Index:{" "}
+          <div
+            style={{ backgroundColor: uvIndexColor[uvDescription] }}
+            className="UVnumber"
+          >
+            {Math.round(uviData.value * 10) / 10}
+          </div>
+        </p>
+      </div>
+      <div className="UVsunburn">
+        <p>
+          <i class="bx bx-stopwatch"></i>
+          {uvIndexSunburn[uvDescription]}
+          <br />
+          To sunburn
+        </p>{" "}
+      </div>
+      <div className="UVspf">
+        <p>{uvIndexSPF[uvDescription]}</p>
+      </div>
       <div style={{ width: "110px" }}>
         <CircularProgressbar
           value={uviData.value * 10}
@@ -59,7 +77,7 @@ const Uvi = ({ uviData }) => {
               stroke: uvIndexColor[uvDescription],
             },
           }}
-          className={progressbarClassName}
+          className={`progressbarClassName white-background`}
         />
       </div>
     </div>

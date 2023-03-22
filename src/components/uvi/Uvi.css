@@ -1,0 +1,60 @@
+.UVindex {
+  background-color: #f9d9c3;
+  border-radius: 10px;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.UVindex p {
+  margin: 0;
+}
+
+.UVindex .UVnumber {
+  border-radius: 50%;
+  color: white;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 10px;
+  text-align: center;
+  width: 50px;
+}
+
+.UVsunburn {
+  background-color: #ff6666;
+  border-radius: 10px;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  height: 50px;
+}
+
+.UVsunburn p {
+  margin: 0;
+}
+
+.UVspf {
+  background-color: #ff6666;
+  border-radius: 10px;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  height: 50px;
+}
+
+.white-background {
+  background-color: white;
+  width: 100%;
+  border-radius: 100%;
+}

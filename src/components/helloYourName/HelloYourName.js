@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
+import "./HelloYourName.css";
 
 const HelloYourName = ({ onSubmit }) => {
   const [name, setName] = useState("");
 
   const handleChange = (event) => {
+    const capitalized =
+      event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1);
     setName(event.target.value);
+    setName(capitalized);
   };
 
   const handleSubmit = (event) => {
@@ -15,10 +19,11 @@ const HelloYourName = ({ onSubmit }) => {
   };
 
   return (
-    <div>
+    <div className="hello">
       <form onSubmit={handleSubmit}>
         <label>
-          Enter your name:
+          Please enter your name:
+          <br />
           <input type="text" value={name} onChange={handleChange} required />
         </label>
         <button type="submit">Submit</button>

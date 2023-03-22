@@ -1,8 +1,8 @@
 .container-width {
-  width: 35vw !important;
+  width: 37vw !important;
   border-left: 2px solid black;
   border-right: 2px solid black;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(168, 168, 168, 0.5);
 }
 .weather-container {
   display: flex;
@@ -12,6 +12,7 @@
   margin: 0 auto;
   width: 100%;
   height: 100vh;
+  font-size: 1.2rem;
 }
 
 .weather {
