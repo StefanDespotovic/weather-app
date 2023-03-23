@@ -12,11 +12,13 @@ function App() {
 
   return (
     <>
-      {username ? (
-        <WeatherSearch />
-      ) : (
-        <HelloYourName onSubmit={handleUsernameSubmit} />
-      )}
+      <div className="container">
+        {username ? (
+          <WeatherSearch />
+        ) : (
+          <HelloYourName onSubmit={handleUsernameSubmit} />
+        )}
+      </div>
     </>
   );
 }

@@ -1,4 +1,12 @@
-.UVindex {
+.uvi-container {
+  display: inline-block;
+  opacity: 0;
+  animation: slideIn 0.5s ease forwards;
+}
+
+.UVindex,
+.UVsunburn,
+.UVspf {
   background-color: #f9d9c3;
   border-radius: 10px;
   display: inline-block;
@@ -8,7 +16,9 @@
   padding: 10px;
 }
 
-.UVindex p {
+.UVindex p,
+.UVsunburn p,
+.UVspf p {
   margin: 0;
 }
 
@@ -54,7 +64,17 @@
 }
 
 .white-background {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   width: 100%;
   border-radius: 100%;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+  } /* animate from -50px in the Y axis */
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  } /* to 0 in the Y axis and opacity 1 */
 }

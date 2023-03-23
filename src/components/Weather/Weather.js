@@ -87,7 +87,7 @@ const Weather = ({ city }) => {
   const iconUrl = `https://openweathermap.org/img/w/${iconId}.png`;
 
   return (
-    <div>
+    <div className="weatherAll">
       <div className="weatherData">
         <h2>
           {weatherData.name}, {weatherData.sys.country}

@@ -1,8 +1,18 @@
 .container-width {
   width: 37vw !important;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-left: 0.1vw solid black;
+  border-right: 0.1vw solid black;
   background-color: rgba(168, 168, 168, 0.5);
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } /* animate from opacity 0 */
+  to {
+    opacity: 1;
+  } /* to opacity 1 */
 }
 .weather-container {
   display: flex;
@@ -12,7 +22,13 @@
   margin: 0 auto;
   width: 100%;
   height: 100vh;
-  font-size: 1.2rem;
+  font-size: 1.2vw;
+}
+.paragraph {
+  margin-left: -28vw;
+  margin-top: -90vh;
+  position: absolute;
+  font-size: 1.5vw;
 }
 
 .weather {
@@ -23,6 +39,8 @@
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
+  opacity: 0;
+  animation: slideIn 0.5s ease forwards;
 }
 
 .forecast {
@@ -43,4 +61,20 @@
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: #3597ff;
 }

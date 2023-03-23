@@ -44,7 +44,7 @@ const Uvi = ({ uviData }) => {
   const progressbarClassName = `progressbar-${uvDescription}`;
 
   return (
-    <div>
+    <div className="uvi-container">
       <div className="UVindex">
         <p>
           {uvDescription} UV Index:{" "}

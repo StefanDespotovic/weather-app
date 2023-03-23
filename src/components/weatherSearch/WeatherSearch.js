@@ -78,7 +78,11 @@ const WeatherSearch = () => {
   return (
     <div className="container-width">
       <div className="weather-container">
-        {username ? <p>Hello {username}</p> : <p>Please enter your name</p>}
+        {username ? (
+          <h2 className="paragraph">Hello {username}</h2>
+        ) : (
+          <p>Please enter your name</p>
+        )}
         <div className="weather">
           {!showWeather && (
             <form className="cityName" onSubmit={handleSearch}>

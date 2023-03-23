@@ -28,9 +28,9 @@ const Forecast = ({ forecastData }) => {
   }, {});
 
   // Then, create an array of the next five days' weather data
-  const nextFiveDaysData = Object.keys(groupedData)
+  const nextTwoDaysData = Object.keys(groupedData)
     .filter((date) => new Date(date) >= new Date())
-    .slice(0, 3)
+    .slice(0, 2)
     .map((date) => ({
       date,
       ...groupedData[date],
@@ -39,7 +39,7 @@ const Forecast = ({ forecastData }) => {
   // Finally, render the next five days' weather data
   return (
     <ul>
-      {nextFiveDaysData.map((item) => (
+      {nextTwoDaysData.map((item) => (
         <li key={item.date}>
           <br />
           <div>{item.date}</div>
