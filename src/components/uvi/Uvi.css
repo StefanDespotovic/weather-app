@@ -8,12 +8,12 @@
 .UVsunburn,
 .UVspf {
   background-color: #f9d9c3;
-  border-radius: 10px;
+  border-radius: 1vw;
   display: inline-block;
   font-family: Arial, sans-serif;
-  font-size: 16px;
-  margin: 10px;
-  padding: 10px;
+  font-size: 1vw;
+  margin: 1vw;
+  padding: 1vw;
 }
 
 .UVindex p,
@@ -23,28 +23,28 @@
 }
 
 .UVindex .UVnumber {
-  border-radius: 50%;
+  border-radius: 3vw;
   color: white;
   display: inline-block;
-  font-size: 24px;
+  font-size: 1vw;
   font-weight: bold;
-  height: 50px;
-  line-height: 50px;
-  margin-left: 10px;
+  height: 6vh;
+  line-height: 6vh;
+  margin-left: 1vw;
   text-align: center;
-  width: 50px;
+  width: 6vh;
 }
 
 .UVsunburn {
   background-color: #ff6666;
-  border-radius: 10px;
+  border-radius: 1.25vw;
   display: inline-block;
   font-family: Arial, sans-serif;
-  font-size: 16px;
-  margin: 10px;
-  padding: 10px;
+  font-size: 1vw;
+  margin: 1vw;
+  padding: 1vw;
   color: white;
-  height: 50px;
+  height: 6vh;
 }
 
 .UVsunburn p {
@@ -53,28 +53,28 @@
 
 .UVspf {
   background-color: #ff6666;
-  border-radius: 10px;
+  border-radius: 1.25vw;
   display: inline-block;
   font-family: Arial, sans-serif;
-  font-size: 16px;
-  margin: 10px;
-  padding: 10px;
+  font-size: 1vw;
+  margin: 1vw;
+  padding: 1vw;
   color: white;
-  height: 50px;
+  height: 6vh;
 }
 
 .white-background {
   background-color: rgba(255, 255, 255, 0.8);
-  width: 100%;
+  width: 7vw;
   border-radius: 100%;
 }
 
 @keyframes slideIn {
   from {
-    transform: translateY(-50px);
-  } /* animate from -50px in the Y axis */
+    transform: translateY(-6.25vh);
+  }
   to {
     transform: translateY(0);
     opacity: 1;
-  } /* to 0 in the Y axis and opacity 1 */
+  }
 }

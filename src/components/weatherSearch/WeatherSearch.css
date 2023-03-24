@@ -3,7 +3,7 @@
   border-left: 0.1vw solid black;
   border-right: 0.1vw solid black;
   background-color: rgba(168, 168, 168, 0.5);
-  animation: fadeIn 2s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -22,13 +22,13 @@
   margin: 0 auto;
   width: 100%;
   height: 100vh;
-  font-size: 1.2vw;
+  font-size: 1vw;
 }
 .paragraph {
   margin-left: -28vw;
   margin-top: -90vh;
   position: absolute;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
 }
 
 .weather {
@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 20px;
+  padding: 1vh;
   box-sizing: border-box;
   opacity: 0;
   animation: slideIn 0.5s ease forwards;
@@ -49,7 +49,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 20px;
+  padding: 1vh;
   box-sizing: border-box;
 }
 
@@ -59,18 +59,18 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 20px;
+  padding: 1vh;
   box-sizing: border-box;
 }
 
 button {
   background-color: #007bff;
   color: #fff;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
+  font-size: 1vw;
+  border-radius: 0.4vw;
+  padding: 0.5vw 1vw;
   border: none;
-  margin-top: 1rem;
+  margin-top: 1vw;
   cursor: pointer;
   transition: background-color 0.5s ease;
 }
