@@ -1,9 +1,22 @@
+/**
+React Component that displays the UV Index and time to sunburn based on the UV Index value
+@component
+@param {Object} uviData - Object containing the UV Index value
+@returns {JSX.Element}
+*/
 import React from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./Uvi.css";
 
 const Uvi = ({ uviData }) => {
+  /**
+
+Returns the UV Index description based on the UV Index value
+@function
+@param {number} value - UV Index value
+@returns {string}
+*/
   let uvDescription = "";
   if (uviData.value <= 2) {
     uvDescription = "Low";
@@ -33,26 +46,25 @@ const Uvi = ({ uviData }) => {
     Extreme: "10 minutes",
   };
 
-  const uvIndexSPF = {
-    Low: "10 SPF",
-    Moderate: "15 SPF",
-    High: "25 SPF",
-    Veryhigh: "40 SPF",
-    Extreme: "50 SPF",
-  };
-
   const progressbarClassName = `progressbar-${uvDescription}`;
 
   return (
     <div className="uvi-container">
       <div className="UVindex">
         <p>
-          {uvDescription} UV Index:{" "}
-          <div
-            style={{ backgroundColor: uvIndexColor[uvDescription] }}
-            className="UVnumber"
-          >
-            {Math.round(uviData.value * 10) / 10}
+          {uvDescription} UV Index{" "}
+          <div className="UVcircular">
+            <CircularProgressbar
+              value={uviData.value * 10}
+              text={`${Math.round(uviData.value * 10) / 10}`}
+              strokeWidth={12}
+              styles={{
+                path: {
+                  stroke: uvIndexColor[uvDescription],
+                },
+              }}
+              className={`progressbarClassName white-background`}
+            />
           </div>
         </p>
       </div>
@@ -63,22 +75,6 @@ const Uvi = ({ uviData }) => {
           <br />
           To sunburn
         </p>{" "}
-      </div>
-      <div className="UVspf">
-        <p>{uvIndexSPF[uvDescription]}</p>
-      </div>
-      <div style={{ width: "110px" }}>
-        <CircularProgressbar
-          value={uviData.value * 10}
-          text={`${Math.round(uviData.value * 10) / 10}`}
-          strokeWidth={12}
-          styles={{
-            path: {
-              stroke: uvIndexColor[uvDescription],
-            },
-          }}
-          className={`progressbarClassName white-background`}
-        />
       </div>
     </div>
   );

@@ -1,3 +1,10 @@
+/**
+
+A component that displays weather information for a given city.
+@param {Object} props - The props object.
+@param {string} props.city - The name of the city to display weather for.
+@returns {JSX.Element} - The Weather component.
+*/
 import React, { useState, useEffect } from "react";
 import "./Weather.css";
 
@@ -6,6 +13,11 @@ const Weather = ({ city }) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
+    /**
+     * Fetches weather data for the given city using the OpenWeatherMap API.
+     * @async
+     * @function fetchWeatherData
+     */
     const fetchWeatherData = async () => {
       try {
         const response = await fetch(
@@ -26,6 +38,11 @@ const Weather = ({ city }) => {
 
     fetchWeatherData();
   }, [city]);
+  /**
+
+Reloads the page to refresh weather data.
+@function handleRefresh
+*/
 
   const handleRefresh = () => {
     window.location.reload();
@@ -43,6 +60,11 @@ const Weather = ({ city }) => {
   if (!weatherData) {
     return <div>Loading...</div>;
   }
+  /**
+
+Object containing weather icons corresponding to different weather conditions.
+@const {Object} weatherIcons
+*/
   // prettier-ignore
   const weatherIcons = {
     "clear sky": "01d",
@@ -61,6 +83,11 @@ const Weather = ({ city }) => {
     "haze": "50d",
     "smoke": "50d",
   };
+  /**
+
+Object containing background images corresponding to different weather conditions.
+@const {Object} weatherBackgrounds
+*/
   // prettier-ignore
   const weatherBackgrounds = {
     "clear sky": "https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-7709.jpg?w=1060&t=st=1679431165~exp=1679431765~hmac=6dad7f84467ca04f627733176bca11fa6a20af5499cb4d55ce34aee4c2ef16ef",
@@ -97,7 +124,7 @@ const Weather = ({ city }) => {
       </div>
       <div className="weatherInfo">
         <img className="weather-icon" src={iconUrl} alt="Weather Icon" />
-        <p>Current temperature: {weatherData.main.temp.toFixed(1)}°C</p>
+        <p>Temperature: {weatherData.main.temp.toFixed(1)}°C</p>
         <p>Feels like: {weatherData.main.feels_like.toFixed(1)}°C</p>
         <p>Weather: {weatherData.weather[0].description}</p>
       </div>

@@ -1,3 +1,9 @@
+/**
+A component that displays the weather forecast for the next two days.
+@param {Object} props - The props object.
+@param {Object} props.forecastData - The forecast data object.
+@returns {JSX.Element} - The Forecast component.
+*/
 import React from "react";
 import "./Forecast.css";
 
@@ -27,7 +33,7 @@ const Forecast = ({ forecastData }) => {
     return result;
   }, {});
 
-  // Then, create an array of the next five days' weather data
+  // Create an array of the next two days weather data
   const nextTwoDaysData = Object.keys(groupedData)
     .filter((date) => new Date(date) >= new Date())
     .slice(0, 2)
@@ -36,7 +42,7 @@ const Forecast = ({ forecastData }) => {
       ...groupedData[date],
     }));
 
-  // Finally, render the next five days' weather data
+  // Render the next two days weather data
   return (
     <ul>
       {nextTwoDaysData.map((item) => (

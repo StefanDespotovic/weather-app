@@ -31,18 +31,6 @@
   font-size: 1.2vw;
 }
 
-.weather {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 1vh;
-  box-sizing: border-box;
-  opacity: 0;
-  animation: slideIn 0.5s ease forwards;
-}
-
 .forecast {
   display: flex;
   flex-direction: column;
@@ -76,5 +64,24 @@ button {
 }
 
 button:hover {
-  background-color: #3597ff;
+  background-color: #c2dbff;
+}
+
+@media (max-width: 767px) {
+  .container-width {
+    width: 60vw !important;
+  }
+  .paragraph {
+    font-size: 4vw;
+  }
+  .weather {
+    margin-left: 22vw;
+  }
+  .buttonForSubmit {
+    margin-left: 9vw !important;
+  }
+  .buttonLocation {
+    display: block;
+    margin: 0 auto;
+  }
 }

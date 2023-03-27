@@ -1,9 +1,22 @@
+/**
+
+Weather search component that allows users to search for weather information
+for a specific city.
+@module WeatherSearch
+*/
 import React, { useState } from "react";
 import Weather from "../Weather/Weather";
 import Forecast from "../forecast/Forecast";
 import Uvi from "../uvi/Uvi";
 import Cookies from "js-cookie";
 import "./WeatherSearch.css";
+/**
+
+WeatherSearch component that renders a form for searching weather information
+for a specific city, and displays the weather, forecast, and UV index data if
+available.
+@function
+*/
 
 const WeatherSearch = () => {
   const username = Cookies.get("username");
@@ -15,7 +28,14 @@ const WeatherSearch = () => {
   const [forecastData, setForecastData] = useState(null);
   const [uviData, setUviData] = useState(null);
   const [showProgressBar, setShowProgressBar] = useState(false);
+  /**
 
+Handles the form submission when a user searches for weather information for a
+specific city. Validates the input and makes API calls to fetch the weather,
+forecast, and UV index data for the city.
+@function
+@param {Event} e - The form submission event
+*/
   const handleSearch = (e) => {
     e.preventDefault();
     // Validate the input to ensure it only contains letters
@@ -94,7 +114,9 @@ const WeatherSearch = () => {
                   onChange={(e) => setCity(e.target.value)}
                 />
               </label>
-              <button type="submit">Search</button>
+              <button className="buttonForSubmit" type="submit">
+                Search
+              </button>
             </form>
           )}
           {showWeather && (
@@ -103,7 +125,9 @@ const WeatherSearch = () => {
             </>
           )}
           {showRefreshButton && (
-            <button onClick={handleRefresh}>Search another location</button>
+            <button className="buttonLocation" onClick={handleRefresh}>
+              Search another location
+            </button>
           )}
           {showError && (
             <div>

@@ -1,6 +1,7 @@
 body {
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
   background-image: url(https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
 }
 .hello form {
@@ -54,4 +55,31 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #0062cc;
+}
+
+@media (max-width: 767px) {
+  .hello form {
+    padding: 20vw;
+    max-width: 50vw;
+    width: 50vw;
+  }
+  label {
+    display: inline;
+    font-size: 5.2vw;
+    width: 70vw;
+  }
+  input[type="text"] {
+    padding: 1vw;
+    font-size: 3.2vw;
+    width: 100%;
+    max-width: 45vw;
+  }
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 4.2vw;
+    padding: 1vw 1vh;
+    margin-top: 1vw;
+    margin-left: 30.3vw;
+  }
 }

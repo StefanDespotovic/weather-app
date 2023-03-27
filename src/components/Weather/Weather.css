@@ -1,6 +1,22 @@
 .weatherAll {
+  background-color: rgba(216, 240, 255, 0.4);
+  display: block;
+  margin: 0 auto;
+  margin-top: 6vh;
+  border-radius: 1vw;
+  padding: 1vw;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  position: relative;
+  transform: translate(-50%, -50%);
   opacity: 0;
   animation: slideIn 0.5s ease forwards;
+}
+.weather-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 5vw;
 }
 
 @keyframes slideIn {
@@ -11,4 +27,18 @@
     transform: translateY(0);
     opacity: 1;
   } /* to 0 in the Y axis and opacity 1 */
+}
+
+@media (max-width: 767px) {
+  .weatherAll {
+    margin-top: -30vh !important;
+    padding: 3vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    text-align: center;
+    font-size: 3vw;
+  }
+  .weather-icon {
+    width: 15vw;
+  }
 }

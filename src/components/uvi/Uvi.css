@@ -1,25 +1,42 @@
 .uvi-container {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   opacity: 0;
   animation: slideIn 0.5s ease forwards;
 }
 
 .UVindex,
-.UVsunburn,
-.UVspf {
-  background-color: #f9d9c3;
+.UVsunburn {
+  background-color: rgba(216, 240, 255, 0.5);
   border-radius: 1vw;
   display: inline-block;
   font-family: Arial, sans-serif;
   font-size: 1vw;
-  margin: 1vw;
   padding: 1vw;
+  margin: 0 1vw;
+  transition: transform 0.2s;
 }
 
+.UVsunburn:hover {
+  transform: scale(1.05);
+}
+.UVindex:hover {
+  transform: scale(1.05);
+}
+
+.UVcircular {
+  display: inline-block;
+}
 .UVindex p,
-.UVsunburn p,
-.UVspf p {
+.UVsunburn p {
   margin: 0;
+}
+
+.UVsunburn p {
+  text-align: center;
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .UVindex .UVnumber {
@@ -36,36 +53,19 @@
 }
 
 .UVsunburn {
-  background-color: #ff6666;
+  background-color: rgba(216, 240, 255, 0.5);
   border-radius: 1.25vw;
   display: inline-block;
   font-family: Arial, sans-serif;
   font-size: 1vw;
   margin: 1vw;
   padding: 1vw;
-  color: white;
-  height: 6vh;
-}
-
-.UVsunburn p {
-  margin: 0;
-}
-
-.UVspf {
-  background-color: #ff6666;
-  border-radius: 1.25vw;
-  display: inline-block;
-  font-family: Arial, sans-serif;
-  font-size: 1vw;
-  margin: 1vw;
-  padding: 1vw;
-  color: white;
   height: 6vh;
 }
 
 .white-background {
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 7vw;
+  background-color: rgba(216, 240, 255, 0.5);
+  width: 4vw;
   border-radius: 100%;
 }
 
