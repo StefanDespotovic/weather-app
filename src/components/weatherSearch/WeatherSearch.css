@@ -40,6 +40,9 @@
   padding: 1vh;
   box-sizing: border-box;
 }
+.buttonLocation {
+  width: 15.5vw;
+}
 
 .uvi {
   display: flex;
