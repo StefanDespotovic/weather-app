@@ -31,7 +31,6 @@
 
 @media (max-width: 767px) {
   .weatherAll {
-    margin-top: -6vh !important;
     padding: 3vw;
     padding-left: 5vw;
     padding-right: 5vw;
