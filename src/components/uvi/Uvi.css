@@ -13,7 +13,7 @@
   font-family: Arial, sans-serif;
   font-size: 1vw;
   padding: 1vw;
-  margin: 0 1vw;
+  margin: 0;
   transition: transform 0.2s;
 }
 
@@ -55,7 +55,9 @@
 .UVsunburn {
   background-color: rgba(216, 240, 255, 0.5);
   border-radius: 1.25vw;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: Arial, sans-serif;
   font-size: 1vw;
   margin: 1vw;
@@ -76,5 +78,26 @@
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+@media (max-width: 767px) {
+  .uvi-container {
+    flex-direction: column;
+  }
+  .UVindex,
+  .UVsunburn {
+    font-size: 3vw;
+    padding: 1.5vw;
+  }
+  .UVindex {
+    padding-top: 1.3vh;
+    padding-bottom: 1.2vh;
+  }
+  .UVsunburn {
+    padding-top: 1.1vh;
+    padding-bottom: 1.2vh;
+  }
+  .white-background {
+    width: 12vw;
   }
 }

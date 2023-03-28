@@ -69,19 +69,23 @@ button:hover {
 
 @media (max-width: 767px) {
   .container-width {
-    width: 60vw !important;
+    width: 70vw !important;
   }
   .paragraph {
     font-size: 4vw;
   }
-  .weather {
-    margin-left: 22vw;
-  }
+
   .buttonForSubmit {
     margin-left: 9vw !important;
   }
   .buttonLocation {
     display: block;
     margin: 0 auto;
+    font-size: 3vw;
+    margin-top: 4vw;
+  }
+  .notFound {
+    font-size: 3.2vw;
+    margin-top: 2vw;
   }
 }

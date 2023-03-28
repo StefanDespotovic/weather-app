@@ -62,6 +62,9 @@ Returns the UV Index description based on the UV Index value
                 path: {
                   stroke: uvIndexColor[uvDescription],
                 },
+                text: {
+                  fill: "black",
+                },
               }}
               className={`progressbarClassName white-background`}
             />

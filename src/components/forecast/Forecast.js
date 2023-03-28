@@ -48,7 +48,7 @@ const Forecast = ({ forecastData }) => {
       {nextTwoDaysData.map((item) => (
         <li key={item.date}>
           <br />
-          <div>{item.date}</div>
+          <div className="date">{item.date}</div>
           <div>High: {item.highTemp.toFixed(1)}°C</div>
           <div>Low: {item.lowTemp.toFixed(1)}°C</div>
           <div>Weather: {item.weather}</div>

@@ -130,7 +130,7 @@ forecast, and UV index data for the city.
             </button>
           )}
           {showError && (
-            <div>
+            <div className="notFound">
               <p>City not found. Please try again.</p>
             </div>
           )}

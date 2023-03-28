@@ -63,6 +63,9 @@ button[type="submit"]:hover {
     max-width: 50vw;
     width: 50vw;
   }
+  form {
+    margin-left: 22vw;
+  }
   label {
     display: inline;
     font-size: 5.2vw;
