@@ -4,20 +4,10 @@ import HelloYourName from "./components/helloYourName/HelloYourName";
 import "./App.css";
 
 function App() {
-  const [username, setUsername] = useState("");
-
-  const handleUsernameSubmit = (name) => {
-    setUsername(name);
-  };
-
   return (
     <>
       <div className="container">
-        {username ? (
-          <WeatherSearch />
-        ) : (
-          <HelloYourName onSubmit={handleUsernameSubmit} />
-        )}
+        <WeatherSearch />
       </div>
     </>
   );

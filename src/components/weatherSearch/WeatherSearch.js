@@ -8,7 +8,6 @@ import React, { useState } from "react";
 import Weather from "../Weather/Weather";
 import Forecast from "../forecast/Forecast";
 import Uvi from "../uvi/Uvi";
-import Cookies from "js-cookie";
 import "./WeatherSearch.css";
 /**
 
@@ -19,7 +18,6 @@ available.
 */
 
 const WeatherSearch = () => {
-  const username = Cookies.get("username");
   const [city, setCity] = useState("");
   const [weatherLoaded, setWeatherLoaded] = useState(false);
   const [showWeather, setShowWeather] = useState(false);
@@ -98,11 +96,6 @@ forecast, and UV index data for the city.
   return (
     <div className="container-width">
       <div className="weather-container">
-        {username ? (
-          <h2 className="paragraph">Hello {username}</h2>
-        ) : (
-          <p>Please enter your name</p>
-        )}
         <div className="weather">
           {!showWeather && (
             <form className="cityName" onSubmit={handleSearch}>
