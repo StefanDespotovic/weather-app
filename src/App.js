@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import WeatherSearch from "./components/weatherSearch/WeatherSearch";
-import HelloYourName from "./components/helloYourName/HelloYourName";
-import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./components/login/Login";
+import Main from "./components/main/Main";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <div className="container">
-        <WeatherSearch />
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/main" element={<Main />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
