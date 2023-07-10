@@ -3,6 +3,7 @@ body {
   max-width: 80%;
   display: flex;
   justify-content: center;
+  font-family: "Poppins", sans-serif;
 }
 .container {
   animation: fadeIn 2s ease-in-out; /* use the fadeIn animation for 2 seconds with ease-in-out timing function */
