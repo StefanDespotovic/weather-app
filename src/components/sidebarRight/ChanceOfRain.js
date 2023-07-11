@@ -3,42 +3,81 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  color: white;
+
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 20px;
 `;
 
-const ChanceOfRainText = styled.p`
-  color: white;
-  font-size: 1.2rem;
-  margin: 0;
-`;
-
-const ChanceOfRainBar = styled.div`
+const HourItem = styled.div`
+  display: flex;
+  align-items: center;
   width: 100%;
-  height: 10px;
-  background-color: #e6e6e6;
-  border-radius: 5px;
-  margin-top: 5px;
+  margin-bottom: 5px;
 `;
 
-const ChanceOfRainBarFill = styled.div`
+const HourText = styled.p`
+  color: white;
+  margin: 0;
+  width: 4rem;
+`;
+
+const BarContainer = styled.div`
+  flex: 1;
+  height: 2.4vh;
+  background-color: #d8d8d8;
+  border-radius: 12px;
+  margin-left: 15px;
+  width: 14rem;
+`;
+
+const BarFill = styled.div`
   width: ${(props) => props.chanceOfRain}%;
   height: 100%;
-  background-color: #44556f;
+  background-color: #7b7c7d;
   border-radius: 5px;
 `;
 
-const ChanceOfRain = () => {
-  const chanceOfRain = 30;
+const Percentages = styled.p`
+  color: white;
+  margin: 0;
+  margin-left: 10px;
+`;
+const ChanceOfRain = ({ currentTime }) => {
+  const getNextHours = (currentTime) => {
+    const currentHour = parseInt(currentTime.split(":")[0]);
+    const nextHours = [];
+
+    for (let i = 1; i <= 4; i++) {
+      const nextHour = (currentHour + i) % 24;
+      const formattedHour =
+        nextHour >= 12 ? `${nextHour % 12 || 12} PM` : `${nextHour} AM`;
+      nextHours.push(formattedHour);
+    }
+
+    return nextHours;
+  };
+
+  const nextHours = getNextHours(currentTime);
 
   return (
     <Container>
-      <ChanceOfRainText>Chance of Rain</ChanceOfRainText>
-      <ChanceOfRainText>{chanceOfRain}%</ChanceOfRainText>
-      <ChanceOfRainBar>
-        <ChanceOfRainBarFill chanceOfRain={chanceOfRain} />
-      </ChanceOfRainBar>
+      <div>
+        <p>Chances of rain</p>
+        {nextHours.map((hour) => {
+          const chanceOfRain = Math.floor(Math.random() * 101);
+          return (
+            <HourItem key={hour}>
+              <HourText>{hour}</HourText>
+              <BarContainer>
+                <BarFill chanceOfRain={chanceOfRain} />
+              </BarContainer>
+              <Percentages>{chanceOfRain}%</Percentages>
+            </HourItem>
+          );
+        })}
+      </div>
     </Container>
   );
 };

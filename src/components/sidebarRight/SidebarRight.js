@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdOutlineWbSunny } from "react-icons/md";
 import ChanceOfRain from "./ChanceOfRain";
+import SunriseSunset from "./SunriseSunset";
 import styled from "styled-components";
 
 const Right = styled.div`
@@ -59,9 +60,16 @@ const SunnyText = styled.p`
   color: white;
   margin-left: 8px;
 `;
+const Bottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+`;
 
 const SidebarRight = () => {
   const [currentTime, setCurrentTime] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -70,6 +78,7 @@ const SidebarRight = () => {
         minute: "2-digit",
       });
       setCurrentTime(time);
+      setLoading(false);
     }, 1000);
 
     return () => clearInterval(intervalId);
@@ -95,8 +104,11 @@ const SidebarRight = () => {
             <SunnyText>Sunny day</SunnyText>
           </TemperatureContainer>
         </UnderTopRight>
-        <ChanceOfRain />
       </div>
+      <Bottom>
+        {!loading && <ChanceOfRain currentTime={currentTime} />}
+        {!loading && <SunriseSunset currentTime={currentTime} />}
+      </Bottom>
     </Right>
   );
 };
