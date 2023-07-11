@@ -44,6 +44,7 @@ const IconContainer = styled.div`
   display: flex;
   font-size: 3rem;
   align-items: center;
+  color: #818ea5;
 `;
 
 const TemperatureContainer = styled.div`

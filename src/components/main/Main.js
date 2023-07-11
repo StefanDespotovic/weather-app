@@ -9,6 +9,7 @@ import Overview from "../overview/Overview";
 const MainContainer = styled.div`
   display: flex;
   position: relative;
+  margin-top: 5vh;
 `;
 
 const Left = styled.div`
@@ -78,8 +79,8 @@ const Main = () => {
           <TopBar />
         </TopBarContainer>
         <div>
+          <Overview style={{ marginTop: "30%" }} />
           <Weekly />
-          <Overview />
         </div>
       </InBetweenContainer>
       <Right>

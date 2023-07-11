@@ -39,14 +39,14 @@ const SunriseSunset = ({ currentTime }) => {
           <FiSunrise style={{ marginLeft: "15px", fontSize: "2vw" }} />
           <HourTextContainer>
             <HourText style={{ color: "#7b7c7d" }}>Sunrise</HourText>
-            <HourText>07:00 AM</HourText>
+            <HourText>7:00 AM</HourText>
           </HourTextContainer>
         </HourItem>
         <HourItem>
           <FiSunset style={{ marginLeft: "15px", fontSize: "2vw" }} />
           <HourTextContainer>
             <HourText style={{ color: "#7b7c7d" }}>Sunset</HourText>
-            <HourText>08:45 PM</HourText>
+            <HourText>8:45 PM</HourText>
           </HourTextContainer>
         </HourItem>
       </div>

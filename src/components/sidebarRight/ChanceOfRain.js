@@ -26,7 +26,7 @@ const HourText = styled.p`
 const BarContainer = styled.div`
   flex: 1;
   height: 2.4vh;
-  background-color: #d8d8d8;
+  background-color: #294364;
   border-radius: 12px;
   margin-left: 15px;
   width: 14rem;
@@ -35,7 +35,7 @@ const BarContainer = styled.div`
 const BarFill = styled.div`
   width: ${(props) => props.chanceOfRain}%;
   height: 100%;
-  background-color: #7b7c7d;
+  background-color: #8eb3fa;
   border-radius: 5px;
 `;
 
