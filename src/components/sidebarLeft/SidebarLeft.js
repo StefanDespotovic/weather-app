@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import SettingsModal from "./SettingsModal";
 import HelpModal from "./HelpModal";
-import { useNavigate } from "react-router-dom";
-import { FiSettings, FiLogOut, FiHelpCircle } from "react-icons/fi";
+import { FiHelpCircle } from "react-icons/fi";
 import logoImage from "../../icon.png";
 
 const Left = styled.div`
@@ -33,11 +31,11 @@ const CenteredContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2vh;
+  margin-top: 4vh;
 `;
 
 const Bottom = styled.div`
-  margin-bottom: 5vh;
+  margin-bottom: 10vh;
 `;
 
 const ButtonContainer = styled.div`
@@ -49,16 +47,6 @@ const ButtonText = styled.span`
   margin-left: 8px;
 `;
 
-const Button = styled.button`
-  background: none;
-  border: none;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
-  color: inherit;
-  cursor: pointer;
-`;
-
 const Button2 = styled.button`
   position: absolute;
   font-size: 22px;
@@ -68,6 +56,7 @@ const Button2 = styled.button`
   border-radius: 5px;
   cursor: pointer;
   overflow: hidden;
+  margin-left: -3vw;
 
   &::after {
     content: "";
@@ -99,21 +88,7 @@ const Button2 = styled.button`
 `;
 
 const SidebarLeft = () => {
-  const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showHelpModal, setShowHelpModal] = useState(false);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    navigate("/");
-  };
-
-  const openSettingsModal = () => {
-    setShowSettingsModal(true);
-  };
-
-  const closeSettingsModal = () => {
-    setShowSettingsModal(false);
-  };
 
   const openHelpModal = () => {
     setShowHelpModal(true);
@@ -125,28 +100,11 @@ const SidebarLeft = () => {
 
   return (
     <Left>
-      <div>
-        <CenteredContainer>
-          <Logo src={logoImage} alt="Logo" />
-        </CenteredContainer>
-        <CenteredContainer>
-          <p>Hello Test</p>
-        </CenteredContainer>
-        <Button onClick={openSettingsModal}>
-          <ButtonContainer>
-            <FiSettings />
-            <ButtonText>Settings</ButtonText>
-          </ButtonContainer>
-        </Button>
-      </div>
+      <CenteredContainer>
+        <Logo src={logoImage} alt="Logo" />
+      </CenteredContainer>
+
       <Bottom>
-        <Button style={{ marginBottom: "3vh" }} onClick={handleLogout}>
-          <ButtonContainer>
-            <FiLogOut />
-            <ButtonText>Logout</ButtonText>
-          </ButtonContainer>
-        </Button>
-        <br />
         <Button2 onClick={openHelpModal}>
           <ButtonContainer>
             <FiHelpCircle />
@@ -154,7 +112,6 @@ const SidebarLeft = () => {
           </ButtonContainer>
         </Button2>
       </Bottom>
-      {showSettingsModal && <SettingsModal onClose={closeSettingsModal} />}
       {showHelpModal && <HelpModal onClose={closeHelpModal} />}
     </Left>
   );

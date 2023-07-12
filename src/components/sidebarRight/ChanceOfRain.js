@@ -44,7 +44,8 @@ const Percentages = styled.p`
   margin: 0;
   margin-left: 10px;
 `;
-const ChanceOfRain = ({ currentTime }) => {
+
+const ChanceOfRain = ({ currentTime, weatherData }) => {
   const getNextHours = (currentTime) => {
     const currentHour = parseInt(currentTime.split(":")[0]);
     const nextHours = [];
@@ -61,12 +62,31 @@ const ChanceOfRain = ({ currentTime }) => {
 
   const nextHours = getNextHours(currentTime);
 
+  const getChanceOfRain = (temperature) => {
+    let chance = 0;
+
+    if (temperature < 15) {
+      chance = Math.floor(Math.random() * 31) + 50;
+    } else if (temperature >= 15 && temperature < 25) {
+      chance = Math.floor(Math.random() * 31) + 20;
+    } else if (temperature >= 25) {
+      chance = Math.floor(Math.random() * 20) + 1;
+    }
+
+    return chance;
+  };
+  const currentTemperature = weatherData?.currentTemperature;
+
   return (
     <Container>
       <div>
         <p>Chances of rain</p>
-        {nextHours.map((hour) => {
-          const chanceOfRain = Math.floor(Math.random() * 101);
+        {nextHours.map((hour, index) => {
+          const temperature =
+            index === 0
+              ? currentTemperature
+              : weatherData?.forecast[index - 1]?.maxTemperature;
+          const chanceOfRain = getChanceOfRain(temperature);
           return (
             <HourItem key={hour}>
               <HourText>{hour}</HourText>

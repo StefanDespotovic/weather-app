@@ -51,7 +51,8 @@ const OverviewBox = styled.div`
   padding: 10px;
   margin-left: 20px;
   margin-bottom: 20px;
-  padding: 25px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 4px 7px;
 `;
 
 const IconContainer = styled.div`
@@ -65,7 +66,7 @@ const IconContainer = styled.div`
   color: #6a7ea5;
 `;
 
-const Overview = () => {
+const Overview = ({ weatherData }) => {
   return (
     <OverviewContainer>
       <OverviewText>Today's Overview</OverviewText>
@@ -75,14 +76,14 @@ const Overview = () => {
             <FaWind />
           </IconContainer>
           <OverviewBoxText>Wind Speed</OverviewBoxText>
-          <OverviewBoxValue>10 km/h</OverviewBoxValue>
+          <OverviewBoxValue>{weatherData?.windSpeed}km/h</OverviewBoxValue>
         </OverviewBox>
         <OverviewBox>
           <IconContainer>
             <WiHumidity style={{ fontSize: "70px" }} />
           </IconContainer>
           <OverviewBoxText>Humidity</OverviewBoxText>
-          <OverviewBoxValue>10%</OverviewBoxValue>
+          <OverviewBoxValue>{weatherData?.humidity}%</OverviewBoxValue>
         </OverviewBox>
       </OverviewBoxes>
       <OverviewBoxes>
@@ -91,14 +92,14 @@ const Overview = () => {
             <WiBarometer style={{ fontSize: "80px" }} />
           </IconContainer>
           <OverviewBoxText>Pressure</OverviewBoxText>
-          <OverviewBoxValue>10 hpa</OverviewBoxValue>
+          <OverviewBoxValue>{weatherData?.pressure}hpa</OverviewBoxValue>
         </OverviewBox>
         <OverviewBox>
           <IconContainer>
             <WiDaySunny style={{ fontSize: "60px" }} />
           </IconContainer>
           <OverviewBoxText>UV Index</OverviewBoxText>
-          <OverviewBoxValue>10</OverviewBoxValue>
+          <OverviewBoxValue>{weatherData?.uvIndex}</OverviewBoxValue>
         </OverviewBox>
       </OverviewBoxes>
     </OverviewContainer>

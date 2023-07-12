@@ -33,7 +33,7 @@ const CurrentDate = styled.p`
   font-size: 16px;
 `;
 
-const TopBar = () => {
+const TopBar = ({ onSearch }) => {
   const currentDate = new Date();
   const options = {
     month: "long",
@@ -42,6 +42,10 @@ const TopBar = () => {
     day: "numeric",
   };
   const formattedDate = currentDate.toLocaleDateString(undefined, options);
+
+  const handleSearch = (data) => {
+    onSearch(data);
+  };
 
   return (
     <TopBarContainer>
@@ -52,7 +56,7 @@ const TopBar = () => {
         </CurrentMonthYear>
         <CurrentDate>{formattedDate}</CurrentDate>
       </DateTimeContainer>
-      <SearchBar />
+      <SearchBar onSearch={handleSearch} />
     </TopBarContainer>
   );
 };

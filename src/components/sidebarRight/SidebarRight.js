@@ -68,7 +68,7 @@ const Bottom = styled.div`
   margin-bottom: 5rem;
 `;
 
-const SidebarRight = () => {
+const SidebarRight = ({ weatherData }) => {
   const [currentTime, setCurrentTime] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -90,8 +90,10 @@ const SidebarRight = () => {
       <div style={{ display: "flex", flexDirection: "column" }}>
         <TopRight>
           <CityName>
-            <White>City name</White>
-            <p style={{ marginTop: "-25%" }}>Country</p>
+            <White style={{ textTransform: "capitalize" }}>
+              {weatherData?.locationName}
+            </White>
+            <p style={{ marginTop: "-15%" }}>{weatherData?.country}</p>
           </CityName>
           <White style={{ marginLeft: "5vw" }}>{currentTime}</White>
         </TopRight>
@@ -100,15 +102,19 @@ const SidebarRight = () => {
             <MdOutlineWbSunny />
           </IconContainer>
           <TemperatureContainer>
-            <White>20</White>
+            <White>{weatherData?.currentTemperature}</White>
             <TemperatureText>°C</TemperatureText>
-            <SunnyText>Sunny day</SunnyText>
+            <SunnyText>{weatherData?.weatherDescription}</SunnyText>
           </TemperatureContainer>
         </UnderTopRight>
       </div>
       <Bottom>
-        {!loading && <ChanceOfRain currentTime={currentTime} />}
-        {!loading && <SunriseSunset currentTime={currentTime} />}
+        {!loading && (
+          <ChanceOfRain currentTime={currentTime} weatherData={weatherData} />
+        )}
+        {!loading && (
+          <SunriseSunset currentTime={currentTime} weatherData={weatherData} />
+        )}
       </Bottom>
     </Right>
   );

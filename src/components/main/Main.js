@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import SidebarLeft from "../sidebarLeft/SidebarLeft";
 import SidebarRight from "../sidebarRight/SidebarRight";
@@ -68,7 +68,13 @@ const TopBarContainer = styled.div`
   color: #7b7c7d;
 `;
 
-const Main = () => {
+const Main = ({ onSearch }) => {
+  const [weatherData, setWeatherData] = useState(null);
+
+  const handleSearch = (data) => {
+    setWeatherData(data);
+  };
+
   return (
     <MainContainer>
       <Left>
@@ -76,15 +82,15 @@ const Main = () => {
       </Left>
       <InBetweenContainer>
         <TopBarContainer>
-          <TopBar />
+          <TopBar onSearch={handleSearch} />
         </TopBarContainer>
         <div>
-          <Overview style={{ marginTop: "30%" }} />
-          <Weekly />
+          <Overview style={{ marginTop: "30%" }} weatherData={weatherData} />
+          <Weekly weatherData={weatherData} />
         </div>
       </InBetweenContainer>
       <Right>
-        <SidebarRight />
+        <SidebarRight weatherData={weatherData} />
       </Right>
     </MainContainer>
   );
