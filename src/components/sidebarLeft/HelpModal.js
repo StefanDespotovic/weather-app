@@ -14,7 +14,7 @@ const ModalContent = styled.div`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 16px;
-  width: 20vw;
+  width: 30vw;
   min-height: 15rem;
   position: absolute;
   top: 50%;
@@ -139,25 +139,14 @@ function HelpModal({ onClose }) {
               <BulletList>
                 <BulletListItem>
                   The creation of this project took place as part of the
-                  educational experience focused on React and Node.js
+                  educational experience focused on React and API.
                 </BulletListItem>
                 <BulletListItem>
-                  You can transfer money from your private account to someone
-                  else's account after selecting from a list.
+                  You can check current weather and get latest weather
+                  information.
                 </BulletListItem>
                 <BulletListItem>
-                  You can send as much money as you currently have in your
-                  balance.
-                </BulletListItem>
-                <BulletListItem>
-                  You can add money to your balance for further testing.
-                </BulletListItem>
-                <BulletListItem>
-                  You can log out of your account and log in again.
-                </BulletListItem>
-                <BulletListItem>
-                  By hovering over the dots in the line graph, you can see the
-                  balance at the time of each transaction.
+                  You can search for different locations and get latest weather.
                 </BulletListItem>
               </BulletList>
             </Description>

@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { MdOutlineWbSunny } from "react-icons/md";
+import {
+  TiWeatherSunny,
+  TiWeatherCloudy,
+  TiWeatherPartlySunny,
+  TiWeatherWindy,
+  TiWeatherStormy,
+  TiWeatherSnow,
+} from "react-icons/ti";
+import { MdFoggy } from "react-icons/md";
+import { FaCloudShowersHeavy } from "react-icons/fa";
 import ChanceOfRain from "./ChanceOfRain";
 import SunriseSunset from "./SunriseSunset";
 import styled from "styled-components";
@@ -19,6 +28,26 @@ const Right = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 20px;
+
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e6e6e6;
+    bottom: 0;
+    top: 1;
+  }
+
+  @media screen and (max-width: 360px) {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e6e6e6;
+    bottom: 0;
+    top: 1;
+  }
 `;
 const TopRight = styled.div`
   display: flex;
@@ -68,6 +97,47 @@ const Bottom = styled.div`
   margin-bottom: 5rem;
 `;
 
+const weatherIcon = (conditions) => {
+  switch (conditions) {
+    case "Sunny":
+    case "Clear":
+    case "Mostly Clear":
+    case "Mostly Sunny":
+    case "Fair":
+      return <TiWeatherSunny />;
+    case "Partially cloudy":
+    case "Cloudy":
+    case "Mostly Cloudy":
+    case "Overcast":
+      return <TiWeatherCloudy />;
+    case "Partly Sunny":
+    case "Partly Cloudy":
+      return <TiWeatherPartlySunny />;
+    case "Windy":
+    case "Breezy":
+      return <TiWeatherWindy />;
+    case "Stormy":
+    case "Thunderstorms":
+    case "Severe Thunderstorms":
+      return <TiWeatherStormy />;
+    case "Snow":
+    case "Snow Showers":
+    case "Blizzard":
+      return <TiWeatherSnow />;
+    case "Rain":
+    case "Showers":
+      return <FaCloudShowersHeavy />;
+    case "Hazy":
+    case "Fog":
+    case "Mist":
+    case "Dust":
+      return <MdFoggy />;
+
+    default:
+      return null;
+  }
+};
+
 const SidebarRight = ({ weatherData }) => {
   const [currentTime, setCurrentTime] = useState("");
   const [loading, setLoading] = useState(true);
@@ -99,7 +169,7 @@ const SidebarRight = ({ weatherData }) => {
         </TopRight>
         <UnderTopRight>
           <IconContainer>
-            <MdOutlineWbSunny />
+            {weatherIcon(weatherData?.weatherDescription)}
           </IconContainer>
           <TemperatureContainer>
             <White>{weatherData?.currentTemperature}</White>

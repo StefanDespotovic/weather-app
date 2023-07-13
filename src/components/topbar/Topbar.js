@@ -13,6 +13,14 @@ const TopBarContainer = styled.div`
   position: fixed;
   top: 0;
   color: #7b7c7d;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    width: 88vw;
+    margin: 0;
+    height: auto;
+    flex-direction: row;
+  }
 `;
 
 const DateTimeContainer = styled.div`

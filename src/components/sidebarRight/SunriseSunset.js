@@ -18,6 +18,10 @@ const HourItem = styled.div`
   border-radius: 5px;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.3) 2px 4px 7px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const HourTextContainer = styled.div`
@@ -37,14 +41,14 @@ const SunriseSunset = ({ weatherData }) => {
       <div>
         <p>Sunrise & Sunset</p>
         <HourItem>
-          <FiSunrise style={{ marginLeft: "15px", fontSize: "2vw" }} />
+          <FiSunrise style={{ marginLeft: "15px", fontSize: "24px" }} />
           <HourTextContainer>
             <HourText style={{ color: "#7b7c7d" }}>Sunrise</HourText>
             <HourText>{weatherData?.sunriseTime}</HourText>
           </HourTextContainer>
         </HourItem>
         <HourItem>
-          <FiSunset style={{ marginLeft: "15px", fontSize: "2vw" }} />
+          <FiSunset style={{ marginLeft: "15px", fontSize: "24px" }} />
           <HourTextContainer>
             <HourText style={{ color: "#7b7c7d" }}>Sunset</HourText>
             <HourText>{weatherData?.sunsetTime}</HourText>

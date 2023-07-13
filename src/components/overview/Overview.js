@@ -9,6 +9,12 @@ const OverviewContainer = styled.div`
   align-items: center;
   margin-top: 15vh;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    margin-top: 120vh;
+    width: 93%;
+    position: relative;
+  }
 `;
 
 const OverviewText = styled.p`
@@ -17,6 +23,10 @@ const OverviewText = styled.p`
   font-weight: bold;
   margin-bottom: 20px;
   margin-right: 41vw;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 `;
 
 const OverviewBoxes = styled.div`
@@ -30,6 +40,11 @@ const OverviewBoxText = styled.p`
   color: #a1a1a1;
   font-size: 14px;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    margin-left: 40%;
+  }
 `;
 
 const OverviewBoxValue = styled.p`
@@ -37,6 +52,10 @@ const OverviewBoxValue = styled.p`
   font-size: 30px;
   margin-top: -5px;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    margin-left: 40%;
 `;
 
 const OverviewBox = styled.div`
@@ -53,6 +72,11 @@ const OverviewBox = styled.div`
   margin-bottom: 20px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.3) 2px 4px 7px;
+
+  @media (max-width: 768px) {
+    width: 32%;
+    height: auto;
+  }
 `;
 
 const IconContainer = styled.div`
@@ -64,7 +88,11 @@ const IconContainer = styled.div`
   align-items: center;
   font-size: 50px;
   color: #6a7ea5;
-`;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+    left: 5px;
+  `;
 
 const Overview = ({ weatherData }) => {
   return (
@@ -89,7 +117,7 @@ const Overview = ({ weatherData }) => {
       <OverviewBoxes>
         <OverviewBox>
           <IconContainer>
-            <WiBarometer style={{ fontSize: "80px" }} />
+            <WiBarometer style={{ fontSize: "80px", marginLeft: "-15%" }} />
           </IconContainer>
           <OverviewBoxText>Pressure</OverviewBoxText>
           <OverviewBoxValue>{weatherData?.pressure}hpa</OverviewBoxValue>

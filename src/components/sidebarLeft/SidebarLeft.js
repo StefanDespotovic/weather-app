@@ -8,7 +8,7 @@ const Left = styled.div`
   color: #7b7c7d;
   font-size: 22px;
   background-color: #edf3f1;
-
+  z-index: 1;
   height: 100vh;
   width: 13vw;
   position: fixed;
@@ -19,12 +19,27 @@ const Left = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 20px;
+
+  @media (max-width: 768px) {
+    width: 100vw;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
 `;
 
 const Logo = styled.img`
   width: 5vw;
   height: auto;
   margin-top: 1vh;
+
+  @media (max-width: 768px) {
+    width: 15vw;
+    height: auto;
+    margin-top: -2vh;
+    margin-left: 2vw;
+  }
 `;
 
 const CenteredContainer = styled.div`
@@ -36,6 +51,13 @@ const CenteredContainer = styled.div`
 
 const Bottom = styled.div`
   margin-bottom: 10vh;
+
+  @media (max-width: 768px) {
+    top: 0;
+    right: 0;
+    margin-top: 8vh;
+    margin-right: 35vw;
+  }
 `;
 
 const ButtonContainer = styled.div`

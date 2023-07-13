@@ -10,6 +10,13 @@ const SearchBarContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 10px;
+
+  @media (max-width: 768px) {
+    width: 45%;
+    height: 10%;
+    margin: 0;
+    padding: 0 10px;
+  }
 `;
 
 const SearchIcon = styled(FaSearch)`
@@ -20,10 +27,30 @@ const SearchInput = styled.input`
   border: none;
   width: 100%;
   height: 100%;
+  min-height: 24px;
   font-size: 14px;
   font-weight: bold;
   background-color: transparent;
   text-transform: capitalize;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const Button = styled.button`
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #162334;
+
+  @media (max-width: 768px) {
+    width: 28%;
+    height: 10%;
+    margin: 0;
+  }
 
   &:focus {
     outline: none;
@@ -43,7 +70,7 @@ const SearchBar = ({ onSearch }) => {
 
   const fetchWeatherData = (location) => {
     fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=apikey&contentType=json`
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=&contentType=json`
     )
       .then((response) => response.json())
       .then((location) => {
@@ -66,7 +93,7 @@ const SearchBar = ({ onSearch }) => {
             date: day.datetime,
             minTemperature: day.tempmin,
             maxTemperature: day.tempmax,
-            icon: day.icon,
+            icon: day.conditions,
           };
         });
 
@@ -102,12 +129,12 @@ const SearchBar = ({ onSearch }) => {
     <SearchBarContainer>
       <SearchIcon />
       <SearchInput
-        placeholder="Search location here"
+        placeholder="Search location"
         value={location}
         onChange={(event) => setLocation(event.target.value)}
         onKeyPress={handleKeyPress}
       />
-      <button onClick={handleSearch}>Search</button>
+      <Button onClick={handleSearch}>Search</Button>
     </SearchBarContainer>
   );
 };
