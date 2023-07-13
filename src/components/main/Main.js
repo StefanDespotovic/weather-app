@@ -15,6 +15,8 @@ const MainContainer = styled.div`
     position: absolute;
     flex-direction: column;
     margin-top: 0;
+    max-width: 768px;
+    overflow-x: hidden;
   }
 `;
 
