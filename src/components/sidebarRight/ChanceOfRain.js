@@ -4,7 +4,6 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   color: white;
-
   flex-direction: column;
   align-items: flex-start;
   margin-top: 20px;
@@ -30,6 +29,14 @@ const BarContainer = styled.div`
   border-radius: 12px;
   margin-left: 15px;
   width: 14rem;
+
+  @media (max-width: 1500px) {
+    max-width: 10rem;
+    min-width: 5rem;
+  }
+  @media (max-width: 1050px) {
+    max-width: 3rem;
+  }
 `;
 
 const BarFill = styled.div`

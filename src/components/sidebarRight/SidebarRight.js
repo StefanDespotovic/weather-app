@@ -57,6 +57,13 @@ const TopRight = styled.div`
 const CityName = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 1500px) {
+    max-width: 9.5rem;
+    min-width: 5rem;
+  }
+  @media (max-width: 1050px) {
+    max-width: 3rem;
+  }
 `;
 const White = styled.p`
   color: white;

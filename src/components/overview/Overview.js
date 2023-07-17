@@ -64,7 +64,8 @@ const OverviewBox = styled.div`
   flex-direction: column;
   align-items: center;
   width: 21vw;
-  height: 13vh;
+  height: auto;
+  max-height: 13vh;
   background-color: #f8f8f8;
   border-radius: 10px;
   padding: 10px;
@@ -76,6 +77,13 @@ const OverviewBox = styled.div`
   @media (max-width: 768px) {
     width: 32%;
     height: auto;
+  }
+  @media (max-width: 1500px) {
+    max-width: 20rem;
+    min-width: 5rem;
+  }
+  @media (max-width: 1000px) {
+    max-width: 9rem;
   }
 `;
 
@@ -92,7 +100,16 @@ const IconContainer = styled.div`
   @media (max-width: 768px) {
     font-size: 40px;
     left: 5px;
-  `;
+    display: inline;
+  }
+  @media (max-width: 1500px) {
+    left: 5px;
+  }
+  @media (min-width: 769px) and (max-width: 1000px) {
+    display: none;
+  }
+  }
+`;
 
 const Overview = ({ weatherData }) => {
   return (
