@@ -50,6 +50,7 @@ const Button = styled.button`
     width: 28%;
     height: 10%;
     margin: 0;
+    padding: 0 10px;
   }
 
   &:focus {
