@@ -1,5 +1,5 @@
 # Weather App
-This is a weather app created using React and OpenWeather API. It features a weather search component, a current weather component, a forecast component for the next five days, and a today overview component.
+This is a Weather app created using React and OpenWeather API. It features a weather search component, a current weather component, a forecast component for the next five days, and a today overview component.
 
 ## Demo
 [Click here](https://rweatherapp.netlify.app/)  to see a live demo of the app.
